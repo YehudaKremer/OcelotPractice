@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotPractice", "OcelotPractice\OcelotPractice.csproj", "{EBFB668F-84D6-4542-BA22-55FA0E3CFB33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users", "Users\Users.csproj", "{2A6B77FD-B2E2-40FA-8645-9A9BB1AB3DC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documents", "Documents\Documents.csproj", "{AD41EEE7-CECF-4E82-848C-61F67341DBAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBFB668F-84D6-4542-BA22-55FA0E3CFB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFB668F-84D6-4542-BA22-55FA0E3CFB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFB668F-84D6-4542-BA22-55FA0E3CFB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFB668F-84D6-4542-BA22-55FA0E3CFB33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6B77FD-B2E2-40FA-8645-9A9BB1AB3DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6B77FD-B2E2-40FA-8645-9A9BB1AB3DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6B77FD-B2E2-40FA-8645-9A9BB1AB3DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6B77FD-B2E2-40FA-8645-9A9BB1AB3DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD41EEE7-CECF-4E82-848C-61F67341DBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD41EEE7-CECF-4E82-848C-61F67341DBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD41EEE7-CECF-4E82-848C-61F67341DBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD41EEE7-CECF-4E82-848C-61F67341DBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0C82023-9D56-4854-B846-C545C08618CB}
+	EndGlobalSection
+EndGlobal

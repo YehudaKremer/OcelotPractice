@@ -1,0 +1,17 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/getAllUsers",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/users",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "SwaggerKey": "users"
+    }
+  ]
+}
