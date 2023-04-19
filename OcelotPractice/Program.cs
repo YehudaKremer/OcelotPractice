@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore;
+using MMLib.Ocelot.Provider.AppConfiguration;
 using MMLib.SwaggerForOcelot.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
@@ -13,15 +14,15 @@ builder.UseKestrel()
             .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
             .AddJsonFile("appsettings.json", true, true)
             .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-            .AddOcelotWithSwaggerSupport((o) =>
+            .AddOcelotWithSwaggerSupport((options) =>
             {
-                o.Folder = "Configuration";
+                options.Folder = "Configuration";
             })
             .AddEnvironmentVariables();
     })
     .ConfigureServices((context, services) =>
     {
-        services.AddOcelot();
+        services.AddOcelot().AddAppConfiguration();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerForOcelot(context.Configuration);
     })

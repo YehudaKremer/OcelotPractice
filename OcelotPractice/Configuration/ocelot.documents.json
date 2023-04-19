@@ -2,15 +2,8 @@
   "Routes": [
     {
       "UpstreamPathTemplate": "/getAllDocuments",
-      "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/documents",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5002
-        }
-      ],
+      "ServiceName": "documents",
       "SwaggerKey": "documents"
     }
   ]
