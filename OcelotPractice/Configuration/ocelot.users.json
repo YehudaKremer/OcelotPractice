@@ -5,15 +5,25 @@
       "DownstreamPathTemplate": "/users",
       "ServiceName": "users",
       "SwaggerKey": "users",
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "TestKey",
-      //}
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Dynamic"
+      },
+      "UpstreamHeaderTransform": {
+        "IpAddress": "{RemoteIpAddress}"
+      },
+      "AddQueriesToRequest": {
+        "upn": "Claims[http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn] > value[0] > @"
+      }
     },
     {
       "UpstreamPathTemplate": "/{everything}",
       "DownstreamPathTemplate": "/{everything}",
       "ServiceName": "users",
-      "SwaggerKey": "users"
+      "SwaggerKey": "users",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Dynamic",
+        "AllowedScopes": []
+      }
     }
   ]
 }

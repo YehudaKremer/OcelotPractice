@@ -1,6 +1,7 @@
 {
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:5000",
+    "RequestIdKey": "OcRequestId",
     "ServiceDiscoveryProvider": {
       "Type": "AppConfiguration",
       "PollingIntervalSeconds": 10000

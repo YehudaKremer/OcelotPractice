@@ -13,7 +13,7 @@ var users = new List<User>(){
     new User{ Id = 2 , Name = "User2" }
 };
 
-app.MapGet("/users", () =>
+app.MapGet("/users", (HttpContext context) =>
 {
     return users;
 });

@@ -1,18 +1,24 @@
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 using MMLib.Ocelot.Provider.AppConfiguration;
 using MMLib.SwaggerForOcelot.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using OcelotPractice.Services;
 
 var builder = WebHost.CreateDefaultBuilder(args);
 
-builder.UseKestrel()
+builder.UseKestrel(options =>
+    {
+        options.ConfigureHttpsDefaults(options =>
+            options.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+    })
     .UseContentRoot(Directory.GetCurrentDirectory())
     .ConfigureAppConfiguration((hostingContext, config) =>
     {
         config
             .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-            .AddJsonFile("appsettings.json", true, true)
+            .AddJsonFile("appsettings.json", false, true)
             .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
             .AddOcelotWithSwaggerSupport((options) =>
             {
@@ -25,6 +31,7 @@ builder.UseKestrel()
         services.AddOcelot().AddAppConfiguration();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerForOcelot(context.Configuration);
+        services.AddAuthenticationServices(context);
     })
     .ConfigureLogging((hostingContext, logging) =>
     {
@@ -33,17 +40,15 @@ builder.UseKestrel()
     .UseIISIntegration()
     .Configure(app =>
     {
-        app.UseSwaggerForOcelotUI(opt =>
+        app.UseHttpsRedirection();
+
+        app.UseSwaggerForOcelotUI(setupUiAction: uiOpt =>
         {
-            // swaggerForOcelot options
-        }, uiOpt =>
-        {
-            //swaggerUI options
             uiOpt.DocumentTitle = "Gateway documentation";
         });
 
+        app.UseAuthentication();
         app.UseOcelot().Wait();
-        app.UseHttpsRedirection();
     });
 
 var app = builder.Build();
