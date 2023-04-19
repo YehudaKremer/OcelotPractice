@@ -11,7 +11,7 @@ var builder = WebHost.CreateDefaultBuilder(args);
 builder.UseKestrel(options =>
     {
         options.ConfigureHttpsDefaults(options =>
-            options.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
+            options.ClientCertificateMode = ClientCertificateMode.AllowCertificate);
     })
     .UseContentRoot(Directory.GetCurrentDirectory())
     .ConfigureAppConfiguration((hostingContext, config) =>
