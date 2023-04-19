@@ -4,7 +4,10 @@
       "UpstreamPathTemplate": "/getAllUsers",
       "DownstreamPathTemplate": "/users",
       "ServiceName": "users",
-      "SwaggerKey": "users"
+      "SwaggerKey": "users",
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "TestKey",
+      //}
     },
     {
       "UpstreamPathTemplate": "/{everything}",

@@ -43,6 +43,7 @@ builder.UseKestrel()
         });
 
         app.UseOcelot().Wait();
+        app.UseHttpsRedirection();
     });
 
 var app = builder.Build();
