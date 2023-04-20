@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Server.Kestrel.Https;
-using MMLib.Ocelot.Provider.AppConfiguration;
-using MMLib.SwaggerForOcelot.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using OcelotPractice.Services;
@@ -20,15 +18,13 @@ builder.UseKestrel(options =>
             .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
             .AddJsonFile("appsettings.json", false, true)
             .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-            .AddOcelotWithSwaggerSupport((options) =>
-            {
-                options.Folder = "Configuration";
-            })
+            .AddJsonFile("ocelot.json")
+            .AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
             .AddEnvironmentVariables();
     })
     .ConfigureServices((context, services) =>
     {
-        services.AddOcelot().AddAppConfiguration();
+        services.AddOcelot();
         services.AddEndpointsApiExplorer();
         services.AddSwaggerForOcelot(context.Configuration);
         services.AddAuthenticationServices(context);
